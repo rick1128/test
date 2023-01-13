@@ -50,7 +50,7 @@ def get_string(key: str, _res: bool = True) -> Any:
             LOGS.exception(er)
         if not _res:
             return None
-        return languages["en"].get(key) or f"Failed to load language string '{key}'"
+        return languages["ar"].get(key) or f"Failed to load language string '{key}'"
 
 def get_help(key):
     doc = get_string(f"help_{key}", _res=False)
