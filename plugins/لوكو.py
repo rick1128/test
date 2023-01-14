@@ -74,7 +74,7 @@ async def logo_gen(event):
         stroke_width=strke,
         stroke_fill="black",
     )
-    await xx.edit("`Done!`")
+    await xx.edit("`تم!`")
     await event.client.send_file(
         event.chat_id,
         file=name,
