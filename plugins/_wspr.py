@@ -32,7 +32,7 @@ buddhhu = {}
 
 
 @ultroid_cmd(
-    pattern="wspr( (.*)|$)",
+    pattern="واسبر( (.*)|$)",
 )
 async def _(e):
     if e.reply_to_msg_id:
