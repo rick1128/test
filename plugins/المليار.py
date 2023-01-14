@@ -19,7 +19,7 @@ async def _(event):
         await event.edit(
             "**᯽︙سيتم تجميع النقاط , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**"
         )
-        channel_entity = await sbb_b.get_entity(bot_username)
+        channel_entity = await ultroid_cmd.get_entity(bot_username)
         await ultroid_cmd.send_message("@t06bot", "/start")
         await asyncio.sleep(5)
         msg0 = await ultroid_cmd.get_messages("@t06bot", limit=1)
