@@ -9,10 +9,10 @@
 
 [![](https://img.shields.io/badge/Repthon-v0.7-darkgreen)](#)
 [![Stars](https://img.shields.io/github/stars/TeamUltroid/Ultroid?style=flat-square&color=yellow)](https://github.com/rogerpq/Ultroid/stargazers)
-[![Forks](https://img.shields.io/github/forks/TeamUltroid/Ultroid?style=flat-square&color=orange)](https://github.com/rogerpq/Ultroid/fork)
-[![Size](https://img.shields.io/github/repo-size/TeamUltroid/Ultroid?style=flat-square&color=green)](https://github.com/rogerpq/Ultroid/)   
+[![Forks](https://img.shields.io/github/forks/rogerpq/Repthon?style=flat-square&color=orange)](https://github.com/rogerpq/Repthon/fork)
+[![Size](https://img.shields.io/github/repo-size/TeamUltroid/Ultroid?style=flat-square&color=green)](https://github.com/rogerpq/Repthon/)   
 [![Python](https://img.shields.io/badge/Python-v3.10.3-blue)](https://www.python.org/)
-[![CodeFactor](https://www.codefactor.io/repository/github/teamultroid/ultroid/badge/main)](https://www.codefactor.io/repository/github/rogerpq/ultroid/overview/main)
+[![CodeFactor](https://www.codefactor.io/repository/github/teamultroid/ultroid/badge/main)](https://www.codefactor.io/repository/github/rogerpq/Repthon/overview/main)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TeamUltroid/Ultroid/graphs/commit-activity)
 [![Docker Pulls](https://img.shields.io/docker/pulls/theteamultroid/ultroid?style=flat-square)](https://img.shields.io/docker/pulls/theteamultroid/ultroid?style=flat-square)   
 [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/TeamUltroid/Ultroid)
@@ -114,7 +114,7 @@ One of the following database:
 
 ## Session String
 Different ways to get your `SESSION`:
-* [![Run on Repl.it](https://replit.com/badge/github/TeamUltroid/Ultroid)](https://replit.com/@TeamUltroid/UltroidStringSession)
+* [![Run on Repl.it](https://replit.com/badge/github/rogerpq/Repthon)](https://replit.com/@taabn-tabantaba/CodeTelethon-1)
 * Linux : `wget -O session.py https://git.io/JY9JI && python3 session.py`
 * PowerShell : `cd desktop ; wget https://git.io/JY9JI ; python ultroid.py`
 * Termux : `wget -O session.py https://git.io/JY9JI && python session.py`
@@ -124,13 +124,13 @@ Different ways to get your `SESSION`:
 
 # License
 [![License](https://www.gnu.org/graphics/agplv3-155x51.png)](LICENSE)   
-Ultroid is licensed under [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html) v3 or later.
+Repthon is licensed under [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html) v3 or later.
 
 ---
 
 # Credits
-* [![TeamUltroid-Devs](https://img.shields.io/static/v1?label=Teamultroid&message=devs&color=critical)](https://t.me/UltroidDevs)
-* [Lonami](https://github.com/LonamiWebs/) for [Telethon.](https://github.com/LonamiWebs/Telethon)
-* [MarshalX](https://github.com/MarshalX) for [PyTgCalls.](https://github.com/MarshalX/tgcalls)
+* [![مطورين ريبثون-Devs Repthon](https://img.shields.io/static/v1?label=rogerpq&message=devs&color=critical)](https://t.me/Devs_Repthon)
+* [HMD-MUSTFA](https://github.com/xxe5/) for [Telethon.](https://github.com/rick1128/)
+* [rogerpq](https://github.com/rogerpq) for [PyTgCalls.](https://github.com/rogerpq/Repvc)
 
 > Made with 💕 by [@Repthon](https://t.me/Repthon).    
