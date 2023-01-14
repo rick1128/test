@@ -51,7 +51,7 @@ async def logo_gen(event):
         else:
             pics = []
             async for i in event.client.iter_messages(
-                "https://graph.org/file/63a826d5e5f0003e006a0.jpg"
+                "@test_repthon", filter=InputMessagesFilterPhotos
             ):
                 pics.append(i)
             id_ = random.choice(pics)
