@@ -8,7 +8,7 @@
 <b>سورس ريبثون افضل سورس يوزر بوت يدعم السورس ميزة تدعى Vc (وهذه تعني سورس ميوزك اختصار(السورس ممزوج مع سورس ميوزك.</b>
 
 [![](https://img.shields.io/badge/Repthon-v0.7-darkgreen)](#)
-[![Stars](https://img.shields.io/github/stars/TeamUltroid/Ultroid?style=flat-square&color=yellow)](https://github.com/rogerpq/Ultroid/stargazers)
+[![Stars](https://img.shields.io/github/stars/rogerpq/Repthon?style=flat-square&color=yellow)](https://github.com/rogerpq/Repthon/stargazers)
 [![Forks](https://img.shields.io/github/forks/rogerpq/Repthon?style=flat-square&color=orange)](https://github.com/rogerpq/Repthon/fork)
 [![Size](https://img.shields.io/github/repo-size/TeamUltroid/Ultroid?style=flat-square&color=green)](https://github.com/rogerpq/Repthon/)   
 [![Python](https://img.shields.io/badge/Python-v3.10.3-blue)](https://www.python.org/)
