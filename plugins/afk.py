@@ -52,7 +52,7 @@ async def set_afk(event):
                 media = f"https://graph.org{iurl[0]}"
             else:
                 media = reply.file.id
-    await event.eor("`Done`", time=2)
+    await event.eor("`تم بنجاح تفعيل وضع السليب 🧸♥️`", time=2)
     add_afk(text, media_type, media)
     ultroid_bot.add_handler(remove_afk, events.NewMessage(outgoing=True))
     ultroid_bot.add_handler(
