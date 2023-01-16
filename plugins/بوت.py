@@ -84,7 +84,7 @@ alive_txt = """
   ◍ Telethon - {}
 """
 
-in_alive = "{}\n\n🌀 <b>Repthon Version -><b> <code>{}</code>\n🌀 <b>PyRepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>Join @TeamUltroid</b>"
+in_alive = "{}\n\n🌀 <b>Repthon Version -><b> <code>{}</code>\n🌀 <b>PyRepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>Join @Repthon</b>"
 
 
 @callback("فحص")
@@ -101,7 +101,7 @@ async def lol(ult):
     inline = None
     if match in ["inline", "i"]:
         try:
-            res = await ult.client.inline_query(asst.me.username, "alive")
+            res = await ult.client.inline_query(asst.me.username, "فحص")
             return await res[0].click(ult.chat_id)
         except BotMethodInvalidError:
             pass
@@ -341,13 +341,13 @@ async def _(e):
         )
 
 
-@callback("updtavail", owner=True)
+@callback("تحديث الان", owner=True)
 async def updava(event):
     await event.delete()
     await asst.send_file(
         udB.get_key("LOG_CHANNEL"),
         ULTPIC(),
-        caption="• **Update Available** •",
+        caption="• **تم تحديث سورس ريبـــثون بنجــاح** •",
         force_document=False,
         buttons=Button.inline("Changelogs", data="changes"),
     )
