@@ -11,6 +11,6 @@ then
 else
     apt install git -y
     git clone https://github.com/rogerpq/Repthon
-    cd Ultroid
+    cd Repthon
 fi
 bash resources/startup/termux.sh
