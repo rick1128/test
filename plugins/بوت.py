@@ -40,7 +40,7 @@ from . import (
     ULTROID_IMAGES,
     Button,
     Carbon,
-   Telegraph,   
+    Telegraph,
     Var,
     allcmds,
     asst,
@@ -77,14 +77,14 @@ buttons = [
 
 # Will move to strings
 alive_txt = """
-سورس ريبثون بنجاح
+سورس ريبـــثون يعمل بنجــاح
 
   ◍ Version - {}
   ◍ Py-Repthon - {}
   ◍ Telethon - {}
 """
 
-in_alive = "{}\n\n🌀 <b>اصدار ريبثون -><b> <code>{}</code>\n🌀 <b>ريبثون -></b> <code>{}</code>\n🌀 <b>بايثون -></b> <code>{}</code>\n🌀 <b>الوقت -></b> <code>{}</code>\n🌀 <b>الفرع -></b> [ {} ]\n\n• <b>انضم @Repthon</b>""
+in_alive = "{}\n\n🌀 <b>Repthon Version -><b> <code>{}</code>\n🌀 <b>PyRepthon -></b> <code>{}</code>\n🌀 <b>Python -></b> <code>{}</code>\n🌀 <b>Uptime -></b> <code>{}</code>\n🌀 <b>Branch -></b> [ {} ]\n\n• <b>Join @TeamUltroid</b>"
 
 
 @callback("فحص")
@@ -101,7 +101,7 @@ async def lol(ult):
     inline = None
     if match in ["inline", "i"]:
         try:
-            res = await ult.client.inline_query(asst.me.username, "فحص")
+            res = await ult.client.inline_query(asst.me.username, "alive")
             return await res[0].click(ult.chat_id)
         except BotMethodInvalidError:
             pass
@@ -112,7 +112,7 @@ async def lol(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("ALIVE_TEXT") or get_string("bot_2")
+    header = udB.get_key("ALIVE_TEXT") or get_string("bot_1")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -130,7 +130,7 @@ async def lol(ult):
         )
 
         if _e := udB.get_key("ALIVE_EMOJI"):
-            als = als.replace("⿻┊‌", _e)
+            als = als.replace("🌀", _e)
     else:
         parse = "md"
         als = (get_string("alive_1")).format(
@@ -145,7 +145,7 @@ async def lol(ult):
         )
 
         if a := udB.get_key("ALIVE_EMOJI"):
-            als = als.replace("⿻┊‌", a)
+            als = als.replace("✵", a)
     if pic:
         try:
             await ult.reply(
@@ -183,7 +183,7 @@ async def lol(ult):
 @ultroid_cmd(pattern="بنك$", chats=[], type=["official", "assistant"])
 async def _(event):
     start = time.time()
-    x = await event.eor("بنك !")
+    x = await event.eor("Pong !")
     end = round((time.time() - start) * 1000)
     uptime = time_formatter((time.time() - start_time) * 1000)
     await x.edit(get_string("ping").format(end, uptime))
@@ -200,7 +200,7 @@ heroku_api = Var.HEROKU_API
 
 
 @ultroid_cmd(
-    pattern="اعادة تشغيل",
+    pattern="اعادة تشغيل$",
     fullsudo=True,
 )
 async def restartbt(ult):
@@ -231,7 +231,7 @@ async def shutdownbot(ult):
 )
 async def _(event):
     opt = event.pattern_match.group(1).strip()
-    file = f"ultroid{sys.argv[-1]}.log" if len(sys.argv) > 1 else "Repthon.log"
+    file = f"ultroid{sys.argv[-1]}.log" if len(sys.argv) > 1 else "ultroid.log"
     if opt == "heroku":
         await heroku_logs(event)
     elif opt == "carbon" and Carbon:
@@ -239,13 +239,13 @@ async def _(event):
         with open(file, "r") as f:
             code = f.read()[-2500:]
         file = await Carbon(
-            file_name="Repthon-logs",
+            file_name="ultroid-logs",
             code=code,
             backgroundColor=choice(ATRA_COL),
         )
-        await event.reply("**اللوك الخاص بريبثون.**", file=file)
+        await event.reply("**Ultroid Logs.**", file=file)
     elif opt == "open":
-        with open("Repthon.log", "r") as f:
+        with open("ultroid.log", "r") as f:
             file = f.read()[-4000:]
         return await event.eor(f"`{file}`")
     else:
@@ -259,7 +259,7 @@ async def inline_alive(ult):
     if isinstance(pic, list):
         pic = choice(pic)
     uptime = time_formatter((time.time() - start_time) * 1000)
-    header = udB.get_key("ALIVE_TEXT") or get_string("in_alive")
+    header = udB.get_key("ALIVE_TEXT") or get_string("bot_1")
     y = Repo().active_branch
     xx = Repo().remotes[0].config_reader.get("url")
     rep = xx.replace(".git", f"/tree/{y}")
@@ -269,7 +269,7 @@ async def inline_alive(ult):
     )
 
     if _e := udB.get_key("ALIVE_EMOJI"):
-        als = als.replace("⿻┊‌", _e)
+        als = als.replace("🌀", _e)
     builder = ult.builder
     if pic:
         try:
@@ -283,13 +283,13 @@ async def inline_alive(ult):
                 if _pic := resolve_bot_file_id(pic):
                     pic = _pic
                     buttons.insert(
-                        0, [Button.inline(get_string("ALIVE_TEXT"), data="فحص")]
+                        0, [Button.inline(get_string("bot_2"), data="alive")]
                     )
                 results = [
                     await builder.document(
                         pic,
-                        title="فحص",
-                        description="@Repthon",
+                        title="Inline Alive",
+                        description="@TeamUltroid",
                         parse_mode="html",
                         buttons=buttons,
                     )
@@ -323,31 +323,31 @@ async def _(e):
         x = await asst.send_file(
             udB.get_key("LOG_CHANNEL"),
             ULTPIC(),
-            caption="• **تم تحديث سورس ريبثون بنجــاح** •",
+            caption="• **تم تحديث سورس ريبثون** •",
             force_document=False,
-            buttons=Button.inline("لروئية اللوك", data="changes"),
+            buttons=Button.inline("Changelogs", data="changes"),
         )
         Link = x.message_link
         await xx.edit(
-            f'<strong><a href="{Link}">[اللوك]</a></strong>',
+            f'<strong><a href="{Link}">[ChangeLogs]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
     else:
         await xx.edit(
-            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/rogerpq/Ultroid/tree/{branch}">[{branch}]</a></strong>',
+            f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/TeamUltroid/Ultroid/tree/{branch}">[{branch}]</a></strong>',
             parse_mode="html",
             link_preview=False,
         )
 
 
-@callback("تحديث الان", owner=True)
+@callback("updtavail", owner=True)
 async def updava(event):
     await event.delete()
     await asst.send_file(
         udB.get_key("LOG_CHANNEL"),
         ULTPIC(),
-        caption="• **تم تحديث ريبثون بنجــاح** •",
+        caption="• **Update Available** •",
         force_document=False,
-        buttons=Button.inline("لروئية اللوك", data="changes"),
+        buttons=Button.inline("Changelogs", data="changes"),
     )
