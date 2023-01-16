@@ -70,7 +70,7 @@ def ULTPIC():
 
 buttons = [
     [
-        Button.url(get_string("bot_3"), "https://github.com/rogerpq/Ultroid"),
+        Button.url(get_string("bot_3"), "https://github.com/rogerpq/Repthon"),
         Button.url(get_string("bot_4"), "t.me/Repthon_support"),
     ]
 ]
@@ -84,7 +84,7 @@ alive_txt = """
   ◍ Telethon - {}
 """
 
-in_alive = "{ALIVE_EMOJI} Repthon Version ->\n{ALIVE_EMOJI} PyRepthon ->\n{ALIVE_EMOJI} Python ->\n{ALIVE_EMOJI} Uptime ->\n{ALIVE_EMOJI} Branch ->/n [ {https://github.com/rogerpq/Ultroid/tree/{branch} ]\n\n• انضم @Repthon"
+in_alive = "{}\n\n🌀 <b>اصدار ريبثون -><b> <code>{}</code>\n🌀 <b>ريبثون -></b> <code>{}</code>\n🌀 <b>بايثون -></b> <code>{}</code>\n🌀 <b>الوقت -></b> <code>{}</code>\n🌀 <b>الفرع -></b> [ {} ]\n\n• <b>انضم @Repthon</b>""
 
 
 @callback("فحص")
