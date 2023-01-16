@@ -13,7 +13,7 @@ bot_username = "@t06bot"
 repthon = ["yes"]
 
 
-@ultroid_cmd(pattern="(تجميع النقاط|تجميع نقاط)"))
+@ultroid.on(admin_cmd(pattern="(تجميع النقاط|تجميع نقاط)"))
 async def _(event):
     if repthon[0] == "yes":
         await event.edit(
