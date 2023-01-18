@@ -3,7 +3,7 @@
 # This file is a part of < https://github.com/rogerpq/Repthon/ >
 # PLease read the GNU Affero General Public License in <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
 
-FROM thejmthon/Repthon:main
+FROM theteamultroid/Repthon:main
 
 # set timezone
 ENV TZ=Asia/Baghdad
