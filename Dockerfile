@@ -3,7 +3,7 @@
 # This file is a part of < https://github.com/rogerpq/Repthon/ >
 # PLease read the GNU Affero General Public License in <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
 
-FROM theteamultroid/Repthon:main
+FROM theteamultroid/Ultroid:main
 
 # set timezone
 ENV TZ=Asia/Baghdad
@@ -14,7 +14,7 @@ COPY installer.sh .
 RUN bash installer.sh
 
 # changing workdir
-WORKDIR "/root/rogerpq"
+WORKDIR "/root/TeamUltroid"
 
 # start the bot.
 CMD ["bash", "startup"]
