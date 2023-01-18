@@ -1,9 +1,9 @@
-# Ultroid - UserBot
-# Copyright (C) 2021-2022 TeamUltroid
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# Repthon - UserBot
+# Copyright (C) 2021-2022 TeamRepthon
+# This file is a part of < https://github.com/rogerpq/Repthon/ >
+# PLease read the GNU Affero General Public License in <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
 
-FROM theteamultroid/ultroid:main
+FROM rogerpq/Repthon:main
 
 # set timezone
 ENV TZ=Asia/Baghdad
@@ -14,7 +14,7 @@ COPY installer.sh .
 RUN bash installer.sh
 
 # changing workdir
-WORKDIR "/root/TeamUltroid"
+WORKDIR "/root/rogerpq"
 
 # start the bot.
 CMD ["bash", "startup"]
