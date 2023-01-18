@@ -17,7 +17,7 @@ from pyUltroid.fns.tools import get_file_link
 from . import HNDLR, asst, get_string, in_pattern, udB, ultroid_bot, ultroid_cmd
 
 
-@ultroid_cmd(pattern="store$")
+@ultroid_cmd(pattern="متجر$")
 async def filestoreplg(event):
     msg = await event.get_reply_message()
     if not msg:
@@ -31,33 +31,33 @@ async def filestoreplg(event):
     )
 
 
-@ultroid_cmd("delstored ?(.*)")
+@ultroid_cmd("مسح المتجر ?(.*)")
 async def _(event):
     match = event.pattern_match.group(1)
     if not match:
-        return await event.eor("`Give stored film's link to delete.`", time=5)
+        return await event.eor("`امنح رابط المتجر المخزن للحذف.`", time=5)
     match = match.split("?start=")
     botusername = match[0].split("/")[-1]
     if botusername != asst.me.username:
         return await event.eor(
-            "`Message/Media of provided link was not stored by this bot.`", time=5
+            "`لم يتم تخزين رسالة / وسائط الارتباط المقدم بواسطة هذا البوت.`", time=5
         )
     msg_id = get_stored_msg(match[1])
     if not msg_id:
         return await event.eor(
-            "`Message/Media of provided link was already deleted.`", time=5
+            "`تم بالفعل حذف رسالة / وسائط الارتباط المقدم.`", time=5
         )
     del_stored(match[1])
     await ultroid_bot.delete_messages(udB.get_key("LOG_CHANNEL"), int(msg_id))
     await event.eor("__Deleted__")
 
 
-@ultroid_cmd("liststored$")
+@ultroid_cmd("متجر القوائم$")
 async def liststored(event):
     files = list_all_stored_msgs()
     if not files:
         return await event.eor(get_string("fsh_4"), time=5)
-    msg = "**Stored files:**\n"
+    msg = "**ملفات القوائم:**\n"
     for c, i in enumerate(files, start=1):
         msg += f"`{c}`. https://t.me/{asst.me.username}?start={i}\n"
     if len(msg) > 4095:
@@ -69,7 +69,7 @@ async def liststored(event):
     await event.eor(msg, link_preview=False)
 
 
-@in_pattern("filestore", owner=True)
+@in_pattern("مخزن الملفات", owner=True)
 async def file_short(event):
     all_ = list_all_stored_msgs()
     res = []
@@ -89,7 +89,7 @@ async def file_short(event):
                     await event.builder.article(title=message.text, text=message.text)
                 )
     if not res:
-        title = "You have no stored file :("
-        text = f"{title}\n\nRead `{HNDLR}help fileshare` to know how to store."
+        title = "ليس لديك ملف مخزّن :("
+        text = f"{title}\n\nقراءة `{HNDLR}help fileshare` لمعرفة كيفية التخزين."
         return await event.answer([await event.builder.article(title=title, text=text)])
-    await event.answer(res, switch_pm="• File Store •", switch_pm_param="start")
+    await event.answer(res, switch_pm="• مخزن الملفات •", switch_pm_param="start")
