@@ -1,9 +1,9 @@
-# Repthon - UserBot
-# Copyright (C) 2021-2022 TeamRepthon
-# This file is a part of < https://github.com/rogerpq/Repthon/ >
-# PLease read the GNU Affero General Public License in <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
+# Ultroid - UserBot
+# Copyright (C) 2021-2022 TeamUltroid
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# PLease read the GNU Affero General Public License in <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
-FROM theteamultroid/Ultroid:main
+FROM theteamultroid/ultroid:main
 
 # set timezone
 ENV TZ=Asia/Baghdad
