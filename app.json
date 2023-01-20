@@ -32,6 +32,11 @@
             "description": "ضع هنا ايبي كي هيروكو",
             "value": "",
             "required": false
+        
+        "BOT_TOKEN": {
+           "description": "ضع هنا توكن البوت",
+           "value": "",
+           "required": false
         },
         "HEROKU_APP_NAME": {
             "description": "ضع هنا اسم التطبيق الخاص بك في هيروكو",
