@@ -1,1 +1,1 @@
-worker: bash PyUltroid
+worker: bash pyUltroid
