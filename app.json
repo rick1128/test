@@ -1,7 +1,7 @@
 {
     "name": "سورس ريبثون",
     "description": "سورس ريبثون مبني على اخر اصدار من لغة بايثون python ويدعم مكتبة تليثون",
-    "logo": "",
+    "logo": "https://graph.org/file/f2154f92fad74625a4841.jpg",
     "keywords": [
         "Telethon",
         "telegram",
@@ -40,7 +40,7 @@
         }
     },
     "formation": {
-        "ultroid": {
+        "repthon": {
             "quantity": 1,
             "size": "free"
         }
