@@ -1,7 +1,7 @@
 {
     "name": "سورس ريبثون",
-    "description": "سورس ريبثون مبني على اخر اصدار من لغة بايثون python ويدعم مكتبة تليثون",
-    "logo": "https://graph.org/file/f2154f92fad74625a4841.jpg",
+    "description": ".",
+    "logo": "https://telegraph.ph/file/7e8f020d2b8536638de2b.jpg",
     "keywords": [
         "Telethon",
         "telegram",
@@ -10,40 +10,34 @@
         "repthon"
     ],
     "repository": "https://github.com/rogerpq/Repthon",
-    "website": "",
     "success_url": "https://t.me/Repthon",
     "stack": "container",
     "env": {
         "API_ID": {
-            "description": "ضع الايبي ايدي هنا",
+            "description": "ضع الايبي ايدي الخاص بك",
             "value": "", 
             "required": false
         },
         "API_HASH": {
-            "description": "ضع الايبي هاش",
+            "description": "ضع هنا الايبي هاش الخاص بك",
             "value": "",
             "required": false
         },
         "SESSION": {
-            "description": "ضع هنا كود تيرمــكس",
+            "description": "ضع هنا كود تيرمــكس الخاص بك",
+            "value": ""
+        },
+        "BOT_TOKEN": {
+            "description": "ضع هنا توكن البوت الخاص بك",
             "value": ""
         },
         "HEROKU_API": {
-            "description": "ضع هنا ايبي كي هيروكو",
+            "description": "ضع هنا ايبي كي هيروكو الخاص بك",
             "value": "",
             "required": false
-        
-        "BOT_TOKEN": {
-           "description": "ضع هنا توكن البوت",
-           "value": "",
-           "required": false
         },
         "HEROKU_APP_NAME": {
-            "description": "ضع هنا اسم التطبيق الخاص بك في هيروكو",
+            "description": "ضع هنا اسم التطبيق الخاص بك(الذي وضعته في البداية)",
             "value": "",
             "required": false
-        },
-        "BOT_TOKEN": {
-            "description": "ضع هنا توكن البوت",
-            "value": "",
-            "required": false
+        }
