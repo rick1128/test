@@ -42,12 +42,8 @@
             "description": "ضع هنا اسم التطبيق الخاص بك في هيروكو",
             "value": "",
             "required": false
-        }
-    },
-    "formation": {
-        "repthon": {
-            "quantity": 1,
-            "size": "free"
-        }
-    }
-}
+        },
+        "BOT_TOKEN": {
+            "description": "ضع هنا توكن البوت",
+            "value": "",
+            "required": false
