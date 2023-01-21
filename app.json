@@ -1,44 +1,28 @@
 {
   "name": "ريبثون-𝐑𝐄𝐏𝐓𝐇𝐎𝐍",
-  "description": "〔 سـورس ريبثون 𝐑𝐄𝐏𝐓𝐇𝐎𝐍 𓅛 〕التحـديث الجديـد افضـل سـورسـات تليثـون يـوزربـوت العربيـة : › عربـي بالكـامل › تحديثـات متواصـله › مبنـي ع آخـر اصـدار مـن لغـة بايثـون〔 Python 3.10.6 〕- مطـور السـورس : روجر",
+  "description": "〔 سـورس ريبثون 𝐑𝐄𝐏𝐓𝐇𝐎𝐍 𓅛 〕",
   "logo": "https://graph.org/file/b3e0cb631d36672092852.jpg",
   "keywords": ["plugin","modular","productivity"],
-  "repository": "https://github.com/rogerpq/C_ll_C",
+  "repository": "https://github.com/rogerpq/Repthon",
   "website": "#TODO",
   "success_url": "#TODO",
   "env": {
-    },
+
     "API_ID": {
-      "description": "كـود ايبي ايـدي〔 App id 〕الصغيـر",
+      "description": "هنا ضع الايبي ايدي الخاص بك يتكون من ارقام", 
       "value": ""
     },
     "API_HASH": {
-      "description": "كـود ايبي هـاش〔 Api hash 〕..",
+      "description": "هنا ضع الايبي هاش الخاص بك يتكون من احرف و ارقام",
       "value": ""
     },
     "SESSION": {
-      "description": "كـــود تيـــرمكـــس - الكـود الكبيـر مـن حـافظـة حسـابـك",
+      "description": " ضع كود تيرمكـس",
       "value": ""
     },
     "BOT_TOKEN": {
-      "description": "تـــوكـــن البـــوت - من بـوت فـاذر〔 @Botfather 〕..",
+      "description": "ضع توكن بوتك",
       "value": ""
-    },
-    "HEROKU_API": {
-      "description": "كـــود مفتـــاح هيروكـــو - تروح ع الرابـط » https://dashboard.heroku.com/account  ع آخـر خانـه وتنسـخ الكـود لهنـا",
-      "value": "",
-      "required": false
-    },
-    "HEROKU_APP_NAME": {
-      "description": "اســـم التطبيـــق - نفـس اول مربـع بالقائمـة نسـخ لصـق حـروف انكلـش صغيـره",
-      "value": "",
-      "required": false
-    },
-    "DATABASE_URL": {
-      "description": "لا تغيــرهـــا",
-      "value": "امسح النص وضع قاعدة البيانات الخاصة بك",
-      "required": false
-    }
   },
   "addons": [{
     "plan": "heroku-postgresql",
@@ -46,7 +30,7 @@
       "version": "12"
     }
   }],
-  "buildpacks": [{
+"buildpacks": [{
     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
   },{
     "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
@@ -62,4 +46,5 @@
     "url": "https://github.com/chrismytton/heroku-buildpack-jq"
   },{
     "url": "heroku/python"
-  }],
+  }]
+}
