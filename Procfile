@@ -1,1 +1,1 @@
-worker: bash pyUltroid
+worker: bash startup
