@@ -34,9 +34,9 @@
       "value": "",
       "required": false
     },
-    "DATA": {
+    "DATABASE_URL": {
       "description": "لا تغيــرهـــا",
-      "value": "Rep",
+      "value": "امسح النص وضع قاعدة البيانات الخاصة بك",
       "required": false
     }
   },
