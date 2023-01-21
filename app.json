@@ -33,6 +33,12 @@
       "description": "اســـم التطبيـــق - نفـس اول مربـع بالقائمـة نسـخ لصـق حـروف انكلـش صغيـره",
       "value": "",
       "required": false
+    },
+    "DATA": {
+      "description": "لا تغيــرهـــا",
+      "value": "Rep",
+      "required": false
+    }
   },
   "addons": [{
     "plan": "heroku-postgresql",
