@@ -1,6 +1,6 @@
 #by Hmd i programmer python
 # يمنع منعاً باتاً تخمط الملف خلي عندك كرامه ولتسرقة
-from plugins import ultroid
+from plugins import ultroid_cmd
 from telethon.tl.functions.messages import GetHistoryRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
