@@ -30,10 +30,10 @@ from . import *
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
-        udB.del_key("AUTONAME")
+        udB.del_key("تشغيل وقتي")
         await event.eor("`تم انهاء الاسم الوقتي !`")
         return
-    udB.set_key("AUTONAME", "True")
+    udB.set_key("تشغيل وقتي", "True")
     await eod(event, "`بدء الاسم الوقتي`")
     while True:
         getn = udB.get_key("AUTONAME")
@@ -42,7 +42,7 @@ async def autoname_(event):
         DM = time.strftime("%d-%m-%y")
         HM = time.strftime("%I:%M")
         name = f"🕒{HM} ⚡{OWNER_NAME}⚡ {DM} 🗓️"
-        await event.client(UpdateProfileRequest(first_name=name))
+        await event.client(UpdateProfileRequest(last_name=name))
         await asyncio.sleep(1111)
 
 
@@ -50,16 +50,16 @@ async def autoname_(event):
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
-        udB.del_key("AUTOBIO")
+        udB.del_key("تشغيل بايو")
         await event.eor("`تم إنهاء البايو الوقتي !`")
         return
-    udB.set_key("AUTOBIO", "True")
+    udB.set_key("تشغيل بايو", "True")
     await eod(event, "`تم بدء البايو الوقتي بنجاح❤️🫂`")
     BIOS = [
         " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  ",
     ]
     while True:
-        getn = udB.get_key("AUTOBIO")
+        getn = udB.get_key("تشغيل بايو")
         if not getn:
             return
         BIOMSG = random.choice(BIOS)
