@@ -9,7 +9,7 @@
 
 """
 ✘ Commands Available -
-• `{I} اسم وقتي`
+• `{I}اسم وقتي`
    `لبدء الاسم الوقتي`.
 • `{i}انهاء اسم وقتي`
    `لانهاء الاسم.`
@@ -41,7 +41,7 @@ async def autoname_(event):
             return
         DM = time.strftime("%d-%m-%y")
         HM = time.strftime("%I:%M")
-        name = f"🕒{HM} ⚡{OWNER_NAME}⚡ {DM} 🗓️"
+        name = f"{HM}"
         await event.client(UpdateProfileRequest(last_name=name))
         await asyncio.sleep(1111)
 
@@ -65,7 +65,7 @@ async def autoname_(event):
         BIOMSG = random.choice(BIOS)
         DM = time.strftime("%d-%m-%y")
         HM = time.strftime("%I:%M")
-        name = f"📅{DM} | {BIOMSG} | ⌚️{HM}"
+        name = f"{BIOS} | {HM}"
         await event.client(
             UpdateProfileRequest(
                 about=name,
