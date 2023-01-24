@@ -9,7 +9,7 @@
 
 """
 ✘ Commands Available -
-• `{i}autoname`
+• `{i}تشغيل اسم وقتي`
    `Starts AUTONAME`.
 • `{i}stopname`
    `Stops AUTONAME.`
@@ -26,41 +26,37 @@ from telethon.tl.functions.account import UpdateProfileRequest
 from . import *
 
 
-@ultroid_cmd(pattern="(auto|stop)name$")
+@ultroid_cmd(pattern="(تشغيل|انهاء)اسم وقتي$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
-    if match == "stop":
+    if match == "انهاء":
         udB.del_key("AUTONAME")
-        await event.eor("`AUTONAME has been Stopped !`")
+        await event.eor("`تم انهاء الاسم الوقتي !`")
         return
     udB.set_key("AUTONAME", "True")
-    await eod(event, "`Started AUTONAME`")
+    await eod(event, "`بدء الاسم الوقتي`")
     while True:
         getn = udB.get_key("AUTONAME")
         if not getn:
             return
         DM = time.strftime("%d-%m-%y")
-        HM = time.strftime("%H:%M")
+        HM = time.strftime("%I:%M")
         name = f"🕒{HM} ⚡{OWNER_NAME}⚡ {DM} 🗓️"
         await event.client(UpdateProfileRequest(first_name=name))
         await asyncio.sleep(1111)
 
 
-@ultroid_cmd(pattern="(auto|stop)bio$")
+@ultroid_cmd(pattern="(تشغيل|انهاء)بايو وقتي$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
-    if match == "stop":
+    if match == "انهاء":
         udB.del_key("AUTOBIO")
-        await event.eor("`AUTOBIO has been Stopped !`")
+        await event.eor("`تم إنهاء البايو الوقتي !`")
         return
     udB.set_key("AUTOBIO", "True")
-    await eod(event, "`Started AUTOBIO`")
+    await eod(event, "`تم بدء البايو الوقتي بنجاح❤️🫂`")
     BIOS = [
-        "Busy Today !",
-        "ULTROID USER",
-        "Enjoying Life!",
-        "Unique as Always!" "Sprinkling a bit of magic",
-        "Intelligent !",
+        " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  ",
     ]
     while True:
         getn = udB.get_key("AUTOBIO")
@@ -68,7 +64,7 @@ async def autoname_(event):
             return
         BIOMSG = random.choice(BIOS)
         DM = time.strftime("%d-%m-%y")
-        HM = time.strftime("%H:%M")
+        HM = time.strftime("%I:%M")
         name = f"📅{DM} | {BIOMSG} | ⌚️{HM}"
         await event.client(
             UpdateProfileRequest(
