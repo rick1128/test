@@ -26,14 +26,14 @@ from telethon.tl.functions.account import UpdateProfileRequest
 from . import *
 
 
-@ultroid_cmd(pattern="(تشغيل|انهاء)وقتي$")
+@ultroid_cmd(pattern="(تشغيل|انهاء)الاسم$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
-        udB.del_key("تشغيل وقتي")
+        udB.del_key("AUTONAME")
         await event.eor("`تم انهاء الاسم الوقتي !`")
         return
-    udB.set_key("تشغيل وقتي", "True")
+    udB.set_key("AUTONAME", "True")
     await eod(event, "`بدء الاسم الوقتي`")
     while True:
         getn = udB.get_key("AUTONAME")
@@ -50,16 +50,16 @@ async def autoname_(event):
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
-        udB.del_key("تشغيل بايو")
+        udB.del_key("AUTOBIO")
         await event.eor("`تم إنهاء البايو الوقتي !`")
         return
-    udB.set_key("تشغيل بايو", "True")
+    udB.set_key("AUTOBIO", "True")
     await eod(event, "`تم بدء البايو الوقتي بنجاح❤️🫂`")
     BIOS = [
         " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  ",
     ]
     while True:
-        getn = udB.get_key("تشغيل بايو")
+        getn = udB.get_key("AUTOBIO")
         if not getn:
             return
         BIOMSG = random.choice(BIOS)
