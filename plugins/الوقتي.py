@@ -1,22 +1,22 @@
 #
-# Ultroid - UserBot
+# Repthon - UserBot
 #
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# This file is a part of < https://github.com/rogerpq/Repthon/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
 
 # Ported Plugin
 
 """
 ✘ Commands Available -
-• `{i}تشغيل اسم وقتي`
-   `Starts AUTONAME`.
-• `{i}stopname`
-   `Stops AUTONAME.`
-• `{i}autobio`
-   `Starts AUTOBIO.`
-• `{i}stopbio`
-   `Stops AUTOBIO.`
+• `{I} اسم وقتي`
+   `لبدء الاسم الوقتي`.
+• `{i}انهاء اسم وقتي`
+   `لانهاء الاسم.`
+• `{i}بايو وقتي`
+   `لبدء البايو الوقتي.`
+• `{i}انهاء بايو وقتي`
+   `لانهاء البايو.`
 """
 
 import random
