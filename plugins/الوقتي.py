@@ -26,7 +26,7 @@ from telethon.tl.functions.account import UpdateProfileRequest
 from . import *
 
 
-@ultroid_cmd(pattern="(تشغيل|انهاء)وقتي$")
+@ultroid_cmd(pattern="(اسم|انهاء)وقتي$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
@@ -46,7 +46,7 @@ async def autoname_(event):
         await asyncio.sleep(1111)
 
 
-@ultroid_cmd(pattern="(تشغيل|انهاء)بايو$")
+@ultroid_cmd(pattern="(بايو|انهاء)وقتي$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
