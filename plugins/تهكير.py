@@ -1,40 +1,57 @@
-# Repthon - UserBot
-# Copyright (C) 2020 RepthonTeam
-#
-# This file is a part of < https://github.com/rogerpq/Repthon/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
-
-"""
-✘ Commands Available
-• `{i}تهكير`
-    Do a Prank With Replied user.
-"""
+# Copyright (C) 2021 Repthon TEAM
+# FILES WRITTEN BY  @ZQ_LO
 
 import asyncio
-import random
-
-from . import *
-
+from telethon import events
 from plugins import ultroid_cmd
+import random
+from . import ONWER_NAME
+
+plugin_category = "fun"
 
 
-@ultroid_cmd(pattern="تهكير")
+@ultroid_cmd(
+    pattern="تهكير$",
+    command=("تهكير", plugin_category),
+    info={
+        "header": "Fun hack animation.",
+        "description": "Reply to user to show hack animation",
+        "note": "This is just for fun. Not real hacking.",
+        "usage": "{tr}hack",
+    },
+)
 async def _(event):
-
-    animation_interval = 0.7
-    animation_ttl = range(0, 11)
-    xx = await event.eor("جار بدء تهكير المستخذم😈")
-    animation_chars = [
-        "`جار الرفع إلى سيرفر التهكير`",
-        "`تم الرفع`",
-        "`Installing... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-        "`Installing... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-        "`Installing... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-        "`lnstallig... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-        "`Installing... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
-        "`Installing... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
-        "`Installing... 84%\n█████████████████████▒▒▒▒ `",
-        "`Installing... 100%\n████████تم التهكير██████████ `",
-        "`تم التهكير بنجاح😂😉`",
-    ]
+    "Fun hack animation."
+    if event.reply_to_msg_id:
+        reply_message = await event.get_reply_message()
+        idd = reply_message.sender_id
+        if idd == 5502537272:
+            await edit_or_reply(
+                event, "**᯽︙ عـذرا لا استـطيع اخـتراق مـطوري اعـتذر او سيقـوم بتهـكيرك**"
+            )
+        else:
+            event = await edit_or_reply(event, "يتـم الاختـراق ..")
+            animation_chars = [
+                "᯽︙ تـم الربـط بسـيرفرات الـتهكير الخـاصة",
+                "تـم تحـديد الضحـية",
+                "**تهكيـر**... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ",
+                "**تهكيـر**... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ",
+                "**تهكيـر**... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ",
+                "**تهكيـر**... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ",
+                "**تهكيـر**... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ",
+                "**تهكيـر**... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ ",
+                "**تهكيـر**... 84%\n█████████████████████▒▒▒▒ ",
+                "**تهكيـر**... 100%\n████████████████████████ ",
+                f"᯽︙ ** تـم اخـتراق الضـحية**..\n\nقـم بالـدفع الى {ALIVE_NAME} لعـدم نشـر معلوماتك وصـورك",
+            ]
+            animation_interval = 3
+            animation_ttl = range(11)
+            for i in animation_ttl:
+                await asyncio.sleep(animation_interval)
+                await event.edit(animation_chars[i % 11])
+    else:
+        await edit_or_reply(
+            event,
+            "᯽︙ لم يتـم التعـرف على المستـخدم",
+            parse_mode=_format.parse_pre,
+        )
