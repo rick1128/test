@@ -10,7 +10,6 @@ from pySmartDL import SmartDL
 from telethon.errors import FloodWaitError
 from telethon.tl import functions
 
-from ..config import config
 from plugins import ultroid_cmd
 from . import edit_delete, logging, ultroid_cmd
 
