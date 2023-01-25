@@ -10,7 +10,6 @@ from telethon.errors import FloodWaitError
 from telethon.tl import functions
 
 from plugins import ultroid_cmd
-from . import edit_delete, logging, ultroid_cmd
 
 DEFAULTUSERBIO = Config.DEFAULT_BIO or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
 DEFAULTUSER = gvarstatus("DEFAULT_NAME") or Config.OWNER_NAME
