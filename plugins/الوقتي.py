@@ -15,7 +15,7 @@ from plugins import ultroid_cmd
 from . import edit_delete, logging, ultroid_cmd
 
 DEFAULTUSERBIO = Config.DEFAULT_BIO or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
-DEFAULTUSER = gvarstatus("DEFAULT_NAME") or Config.ALIVE_NAME
+DEFAULTUSER = gvarstatus("DEFAULT_NAME") or Config.OWNER_NAME
 LOGS = logging.getLogger(__name__)
 CHANGE_TIME = int(gvarstatus("CHANGE_TIME")) if gvarstatus("CHANGE_TIME") else 60
 DEFAULT_PIC = gvarstatus("DEFAULT_PIC") or None
