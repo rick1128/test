@@ -1,6 +1,6 @@
-#
+# كتابة الشسد : @ZQ_LO
 # Repthon - UserBot
-#
+# اخمط خوية
 # This file is a part of < https://github.com/rogerpq/Repthon/ >
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
@@ -76,5 +76,5 @@ async def autoname_(event):
         await asyncio.sleep(1111)
 
 
-ultroid_cmd.loop.create_task(autoname_loop())
-ultroid_cmd.loop.create_task(autobio_loop())
+ultroid_bot.loop.create_task(autoname_loop())
+ultroid_bot.loop.create_task(autobio_loop())
