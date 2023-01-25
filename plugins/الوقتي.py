@@ -76,5 +76,5 @@ async def autoname_(event):
         await asyncio.sleep(1111)
 
 
-ultroid.loop.create_task(autoname_loop())
-ultroid.loop.create_task(autobio_loop())
+ultroid_cmd.loop.create_task(autoname_loop())
+ultroid_cmd.loop.create_task(autobio_loop())
