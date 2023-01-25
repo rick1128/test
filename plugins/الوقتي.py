@@ -79,7 +79,7 @@ async def digitalpicloop():
                     )
                 )
             i += 1
-            await sbb_b(functions.photos.UploadProfilePhotoRequest(file))
+            await ultroid(functions.photos.UploadProfilePhotoRequest(file))
             os.remove(autophoto_path)
             await asyncio.sleep(60)
         except BaseException:
