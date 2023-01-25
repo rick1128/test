@@ -1,218 +1,76 @@
-import asyncio
-import base64
-import os
-import shutil
-import time
-from datetime import datetime
+#
+# Repthon - UserBot
+#
+# This file is a part of < https://github.com/rogerpq/Repthon/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/rogerpq/Repthon/blob/main/LICENSE/>.
 
-from PIL import Image, ImageDraw, ImageFont
-from telethon.errors import FloodWaitError
-from telethon.tl import functions
+# Ported Plugin
+
+"""
+✘ Commands Available -
+• `{I}اسم وقتي`
+   `لبدء الاسم الوقتي`.
+• `{i}انهاء اسم وقتي`
+   `لانهاء الاسم.`
+• `{i}بايو وقتي`
+   `لبدء البايو الوقتي.`
+• `{i}انهاء بايو وقتي`
+   `لانهاء البايو.`
+"""
+
+import random
+
+from telethon.tl.functions.account import UpdateProfileRequest
+
+from . import *
 
 from plugins import ultroid_cmd
 
-DEFAULTUSERBIO = Config.DEFAULT_BIO or " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  "
-DEFAULTUSER = gvarstatus("DEFAULT_NAME") or Config.OWNER_NAME
-LOGS = logging.getLogger(__name__)
-CHANGE_TIME = int(gvarstatus("CHANGE_TIME")) if gvarstatus("CHANGE_TIME") else 60
-DEFAULT_PIC = gvarstatus("DEFAULT_PIC") or None
-FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 
-autopic_path = os.path.join(os.getcwd(), "sbb_B", "original_pic.png")
-digitalpic_path = os.path.join(os.getcwd(), "sbb_B", "digital_pic.png")
-autophoto_path = os.path.join(os.getcwd(), "sbb_B", "photo_pfp.png")
-
-digitalpfp = (
-    gvarstatus("DIGITAL_PIC") or "https://graph.org/file/63a826d5e5f0003e006a0.jpg"
-)
-RR7PP = Config.TIME_JM or ""
-
-normzltext = "0123456789"
-namerzfont = Config.TI_FN or "0𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫"
-
-COLLECTION_STRINGS = {
-    "batmanpfp_strings": [
-        "awesome-batman-wallpapers",
-        "batman-arkham-knight-4k-wallpaper",
-        "batman-hd-wallpapers-1080p",
-        "the-joker-hd-wallpaper",
-        "dark-knight-joker-wallpaper",
-    ],
-    "thorpfp_strings": [
-        "thor-wallpapers",
-        "thor-wallpaper",
-        "thor-iphone-wallpaper",
-        "thor-wallpaper-hd",
-    ],
-}
-
-
-async def digitalpicloop():
-    DIGITALPICSTART = gvarstatus("digitalpic") == "true"
-    i = 0
-    while DIGITALPICSTART:
-        if not os.path.exists(digitalpic_path):
-            downloader = SmartDL(digitalpfp, digitalpic_path, progress_bar=False)
-            downloader.start(blocking=False)
-            while not downloader.isFinished():
-                pass
-        shutil.copy(digitalpic_path, autophoto_path)
-        Image.open(autophoto_path)
-        current_time = datetime.now().strftime("%I:%M")
-        img = Image.open(autophoto_path)
-        drawn_text = ImageDraw.Draw(img)
-        jmthon = str(
-            base64.b64decode("dXNlcmJvdC9oZWxwZXJzL3N0eWxlcy9kaWdpdGFsLnR0Zg==")
-        )[2:36]
-        fnt = ImageFont.truetype(jmthon, 65)
-        drawn_text.text((300, 400), current_time, font=fnt, fill=(280, 280, 280))
-        img.save(autophoto_path)
-        file = await ultroid.upload_file(autophoto_path)
-        try:
-            if i > 0:
-                await ultroid(
-                    functions.photos.DeletePhotosRequest(
-                        await ultroid.get_profile_photos("me", limit=1)
-                    )
-                )
-            i += 1
-            await ultroid(functions.photos.UploadProfilePhotoRequest(file))
-            os.remove(autophoto_path)
-            await asyncio.sleep(60)
-        except BaseException:
+@ultroid_cmd(pattern="(اسم|انهاء)وقتي$")
+async def autoname_(event):
+    match = event.pattern_match.group(1)
+    if match == "انهاء":
+        udB.del_key("AUTONAME")
+        await event.eor("`تم انهاء الاسم الوقتي !`")
+        return
+    udB.set_key("AUTONAME", "True")
+    await eod(event, "`بدء الاسم الوقتي`")
+    while True:
+        getn = udB.get_key("AUTONAME")
+        if not getn:
             return
-        DIGITALPICSTART = gvarstatus("digitalpic") == "true"
-
-
-async def autoname_loop():
-    while AUTONAMESTART := gvarstatus("autoname") == "true":
+        DM = time.strftime("%d-%m-%y")
         HM = time.strftime("%I:%M")
-        for normal in HM:
-            if normal in normzltext:
-                namefont = namerzfont[normzltext.index(normal)]
-                HM = HM.replace(normal, namefont)
-        name = f"{RR7PP} {HM}"
-        LOGS.info(name)
-        try:
-            await ultroid(functions.account.UpdateProfileRequest(last_name=name))
-        except FloodWaitError as ex:
-            LOGS.warning(str(ex))
-            await asyncio.sleep(ex.seconds)
-        await asyncio.sleep(CHANGE_TIME)
+        name = f"{HM}"
+        await event.client(UpdateProfileRequest(last_name=name))
+        await asyncio.sleep(1111)
 
 
-async def autobio_loop():
-    while AUTOBIOSTART := gvarstatus("autobio") == "true":
-        HI = time.strftime("%I:%M")
-        for normal in HI:
-            if normal in normzltext:
-                namefont = namerzfont[normzltext.index(normal)]
-                HI = HI.replace(normal, namefont)
-        bio = f"{DEFAULTUSERBIO} {HI}"
-        LOGS.info(bio)
-        try:
-            await ultroid(functions.account.UpdateProfileRequest(about=bio))
-        except FloodWaitError as ex:
-            LOGS.warning(str(ex))
-            await asyncio.sleep(ex.seconds)
-        await asyncio.sleep(CHANGE_TIME)
-
-
-@ultroid_cmd(pattern="الصورة الوقتية$")
-async def _(event):
-    downloader = SmartDL(digitalpfp, digitalpic_path, progress_bar=False)
-    downloader.start(blocking=False)
-    while not downloader.isFinished():
-        pass
-    if gvarstatus("digitalpic") is not None and gvarstatus("digitalpic") == "true":
-        return await edit_delete(event, "**- الصورة الوقتية بالاصل شغالة**")
-    addgvar("digitalpic", True)
-    await edit_delete(event, "**- تم بنجاح تفعيل امر الصورة الوقتية بنجاح**")
-    await digitalpicloop()
-
-
-@ultroid_cmd(pattern="اسم وقتي$")
-async def _(event):
-    if gvarstatus("autoname") is not None and gvarstatus("autoname") == "true":
-        return await edit_delete(event, "**- الاسم الوقتي بالاصل شغال")
-    addgvar("autoname", True)
-    await edit_delete(event, "**- تم تفعيل الاسم الوقتي بنجاح**")
-    await autoname_loop()
-
-
-@ultroid_cmd(pattern="بايو وقتي$")
-async def _(event):
-    if gvarstatus("autobio") is not None and gvarstatus("autobio") == "true":
-        return await edit_delete(event, "**- البايو الوقتي بالاصل شغال**")
-    addgvar("autobio", True)
-    await edit_delete(event, "**- تم بنجاح تشغيل البايو الوقتي**")
-    await autobio_loop()
-
-
-@ultroid_cmd(pattern="انهاء ([\s\S]*)")
-async def _(event):
-    input_str = event.pattern_match.group(1)
-    if (
-        input_str == "الصورة الوقتية"
-        or input_str == "الصورة الوقتيه"
-        or input_str == "الصوره الوقتيه"
-        or input_str == "صورة وقتية"
-        or input_str == "صورة وقتيه"
-        or input_str == "صوره وقتية"
-    ):
-        if gvarstatus("digitalpic") is not None and gvarstatus("digitalpic") == "true":
-            delgvar("digitalpic")
-            await event.client(
-                functions.photos.DeletePhotosRequest(
-                    await event.client.get_profile_photos("me", limit=1)
-                )
-            )
-            return await edit_delete(event, "**- تم بنجاح ايقاف الصورة الوقتية**")
-        return await edit_delete(event, "**- الصورة الوقتية غير مفعلة بالاصل**")
-    if (
-        input_str == "اسم وقتي"
-        or input_str == "اسم الوقتي"
-        or input_str == "الاسم الوقتي"
-        or input_str == "الاسم وقتي"
-    ):
-        if gvarstatus("autoname") is not None and gvarstatus("autoname") == "true":
-            delgvar("autoname")
-            await event.client(
-                functions.account.UpdateProfileRequest(first_name=DEFAULTUSER)
-            )
-            return await edit_delete(event, "**- تم بنجاح ايقاف الاسم الوقتي**")
-        return await edit_delete(event, "**- الاسم الوقتي غير شغال اصلا**")
-    if input_str == "بايو وقتي" or input_str == "البايو الوقتي":
-        if gvarstatus("autobio") is not None and gvarstatus("autobio") == "true":
-            delgvar("autobio")
-            await event.client(
-                functions.account.UpdateProfileRequest(about=DEFAULTUSERBIO)
-            )
-            return await edit_delete(event, "**- تم بنجاح ايقاف البايو الوقتي**")
-        return await edit_delete(event, "**- البايو الوقتي غير شغال اصلا**")
-    END_CMDS = [
-        "الصورة الوقتية",
-        "الصورة الوقتيه",
-        "الصوره الوقتيه",
-        "الصوره الوقتية",
-        "صورة وقتية",
-        "صوره وقتيه",
-        "اسم وقتي",
-        "اسم وقتي",
-        "اسم الوقتي",
-        "الاسم وقتي",
-        "الاسم الوقتي",
-        "بايو وقتي",
-        "البايو الوقتي",
+@ultroid_cmd(pattern="(بايوئ|انهاء)وقتي$")
+async def autoname_(event):
+    match = event.pattern_match.group(1)
+    if match == "انهاء":
+        udB.del_key("AUTOBIO")
+        await event.eor("`تم إنهاء البايو الوقتي !`")
+        return
+    udB.set_key("AUTOBIO", "True")
+    await eod(event, "`تم بدء البايو الوقتي بنجاح❤️🫂`")
+    BIOS = [
+        " ﴿ لا تَحزَن إِنَّ اللَّهَ مَعَنا ﴾  ",
     ]
-    if input_str not in END_CMDS:
-        await edit_delete(
-            event,
-            f"{input_str} هذا الخيار غير صحيح يرجى كتابة الاسم بشكل صحيح.",
-            parse_mode=_format.parse_pre,
+    while True:
+        getn = udB.get_key("AUTOBIO")
+        if not getn:
+            return
+        BIOMSG = random.choice(BIOS)
+        DM = time.strftime("%d-%m-%y")
+        HM = time.strftime("%I:%M")
+        name = f"{HM} | {BIOS}"
+        await event.client(
+            UpdateProfileRequest(
+                about=name,
+            )
         )
-
-
-ultroid.loop.create_task(digitalpicloop())
-ultroid.loop.create_task(autoname_loop())
-ultroid.loop.create_task(autobio_loop())
+        await asyncio.sleep(1111)
