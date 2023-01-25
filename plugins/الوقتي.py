@@ -75,7 +75,7 @@ async def digitalpicloop():
             if i > 0:
                 await ultroid(
                     functions.photos.DeletePhotosRequest(
-                        await sbb_b.get_profile_photos("me", limit=1)
+                        await ultroid.get_profile_photos("me", limit=1)
                     )
                 )
             i += 1
@@ -114,7 +114,7 @@ async def autobio_loop():
         bio = f"{DEFAULTUSERBIO} {HI}"
         LOGS.info(bio)
         try:
-            await sbb_b(functions.account.UpdateProfileRequest(about=bio))
+            await ultroid(functions.account.UpdateProfileRequest(about=bio))
         except FloodWaitError as ex:
             LOGS.warning(str(ex))
             await asyncio.sleep(ex.seconds)
