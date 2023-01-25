@@ -22,14 +22,6 @@ from plugins import ultroid_cmd
 @ultroid_cmd(pattern="تهكير")
 async def _(event):
 
-if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        idd = reply_message.sender_id
-        if idd == 5502537272:
-            await edit_or_reply(
-                event, "**᯽︙ عـذرا لا استـطيع اخـتراق مـطوري اعـتذر او سيقـوم بتهـكيرك**"
-            )
-
     animation_interval = 0.7
     animation_ttl = range(0, 11)
     xx = await event.eor("جار بدء تهكير المستخذم😈")
