@@ -16,7 +16,7 @@ import random
 
 from . import *
 
-from plugins import ultroid_cm
+from plugins import ultroid_cmd
 
 
 @ultroid_cmd(pattern="تهكير")
