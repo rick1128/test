@@ -28,8 +28,6 @@ from . import *
 
 @ultroid_cmd(pattern="اسم وقتي$")
 async def autoname_(event):
-    match = event.pattern_match.group(1)
-    if match == "انهاء":
         udB.del_key("AUTONAME")
         await event.eor("`تم انهاء الاسم الوقتي !`")
         return
@@ -48,8 +46,6 @@ async def autoname_(event):
 
 @ultroid_cmd(pattern="بايو وقتي$")
 async def autoname_(event):
-    match = event.pattern_match.group(1)
-    if match == "انهاء":
         udB.del_key("AUTOBIO")
         await event.eor("`تم إنهاء البايو الوقتي !`")
         return
