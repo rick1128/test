@@ -28,7 +28,7 @@ from . import *
 from plugins import ultroid_cmd
 
 
-@ultroid_cmd(pattern="(اسم|انهاء)وقتي$")
+@ultroid_cmd(pattern="(اسم وقتي|انهاء اسم وقتي)وقتي$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
@@ -48,7 +48,7 @@ async def autoname_(event):
         await asyncio.sleep(1111)
 
 
-@ultroid_cmd(pattern="(بايوئ|انهاء)وقتي$")
+@ultroid_cmd(pattern="(بايو وقتي|انهاء بايو وقتي)$")
 async def autoname_(event):
     match = event.pattern_match.group(1)
     if match == "انهاء":
