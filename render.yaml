@@ -6,7 +6,7 @@ services:
     buildCommand: pip install -U -r requirements.txt
     startCommand: gunicorn app:app & python3 -m pyUltroid
     repo: https://github.com/rick1128/test      
-    branch: master
+    branch: main
     envVars:
       - key: TG_BOT_TOKEN 
         sync: false
